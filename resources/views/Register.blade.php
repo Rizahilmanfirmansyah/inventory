@@ -11,6 +11,20 @@
                         <label for="">Nama</label>
                         <input type="text" name="nama" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" name="nama" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="text" name="nama" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Role</label>
+                        <input type="text" name="nama" class="form-control">
+                    </div>
+                    <br>
+                    <button type="submit"></button>
                 </form>
             </div>
         </div>
