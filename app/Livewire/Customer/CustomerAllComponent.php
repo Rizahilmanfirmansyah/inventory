@@ -7,6 +7,14 @@ use App\Models\Customers;
 
 class CustomerAllComponent extends Component
 {
+    public function delete($id)
+    {
+        $customer = Customers::find($id);
+        $customer->delete();
+        session()->flash('notif', 'Customer Berhasil Di delete');
+
+    }
+
     public function render()
     {
         $customers = Customers::all();

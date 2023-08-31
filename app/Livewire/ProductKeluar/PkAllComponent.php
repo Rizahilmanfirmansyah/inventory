@@ -10,9 +10,9 @@ class PkAllComponent extends Component
    
     public function render()
     {
-        $product_outs = Product_keluar::all();
+        $products_keluar = Product_keluar::all();
         return view('livewire.product-keluar.pk-all-component', [
-            'product_outs' => $product_outs
-        ])->layout('layouts.layout.admin');
+            'products_keluar' => $products_keluar
+        ])->layout('layouts.layout-admin');
     }
 }

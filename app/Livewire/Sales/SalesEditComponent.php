@@ -45,6 +45,6 @@ class SalesEditComponent extends Component
     
     public function render()
     {
-        return view('livewire.sales.sales-edit-component');
+        return view('livewire.sales.sales-edit-component')->layout('layouts.layout-admin');
     }
 }

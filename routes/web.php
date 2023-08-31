@@ -20,6 +20,14 @@ use App\Livewire\ProductKeluar\PkEditComponent;
 use App\Livewire\ProductMasuk\PmAddComponent;
 use App\Livewire\ProductMasuk\PmAllComponent;
 use App\Livewire\ProductMasuk\PmEditComponent;
+use App\Livewire\Sales\SalesAllCompenent;
+use App\Livewire\Sales\SalesEditComponent;
+use App\Livewire\Sales\SalesAddComponent;
+use App\Livewire\Supplier\SupplierAddComponent;
+use App\Livewire\Supplier\SupplierAllComponent;
+use App\Livewire\Supplier\SupplierEditComponent;
+
+
 
 
 
@@ -41,12 +49,21 @@ Route::get('/', function () {
 
 //Auth
 
+Route::group(['middlewire' =>  ['auth']], function(){
+    Route::group(['middlewire' => ['role:admin']], function(){
+
+    });
+    Route::group(['middleware' => ['role:normal_user']], function(){
+
+    });
+});
+
 Route::get('/', [LoginController::class, 'index'])->name('login');
-Route::post('aksilogin', [LoginController::class, 'aksireg'])->name('aksireg');
+Route::post('aksilogin', [LoginController::class, 'aksilogin'])->name('aksilogin');
 Route::post('logout', [LoginController::class, 'aksilogout'])->name('aksilogout');  
 
-Route::get('reg', [LoginController::class, 'index'])->name('register');
-Route::post('aksireg', [LoginController::class, 'aksiireg'])->name('aksireg');
+Route::get('reg', [RegisterController::class, 'index'])->name('register');
+Route::post('aksireg', [RegisterController::class, 'aksireg'])->name('aksireg');
 
 Route::get('dashboard', DashboardComponent::class)->name('dashboard.admin');
 
@@ -60,11 +77,23 @@ Route::get('edit-product/{product_id}', ProductEditComponent::class)->name('prod
 
 Route::get('all-customer', CustomerAllComponent::class)->name('customer.all');
 Route::get('add-customer', CustomerAddComponent::class)->name('customer.add');
-Route::get('edit-customer', CustomerEditComponent::class)->name('customer.edit');
+Route::get('edit-customer/{customer_id}', CustomerEditComponent::class)->name('customer.edit');
+
+Route::get('all-sales', SalesAllCompenent::class)->name('sales.all');
+Route::get('add-sales', SalesAddComponent::class)->name('sales.add');
+Route::get('edit-sales/{sales_id}', SalesEditComponent::class)->name('sales.edit');
+
+Route::get('all-suppliers', SupplierAllComponent::class)->name('suppliers.all');
+Route::get('add-suppliers', SupplierAddComponent::class)->name('suppliers.add');
+Route::get('edit-suppliers/{suppliers_id}', SupplierEditComponent::class)->name('suppliers.edit');
 
 Route::get('all-product_in', PmAllComponent::class)->name('product_masuk.all');
 Route::get('add-product_in', PmAddComponent::class)->name('product_masuk.add');
 Route::get('edit-product_in/{pm_id}', PmEditComponent::class)->name('product_masuk.edit');
+
+Route::get('all-product_out', PkAllComponent::class)->name('product_keluar.all');
+Route::get('add-product_out', PkAddComponent::class)->name('product_keluar.add');
+Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_keluar.edit');
 
 
 

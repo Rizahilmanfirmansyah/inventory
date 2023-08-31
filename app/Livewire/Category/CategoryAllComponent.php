@@ -7,12 +7,30 @@ use App\Models\Category;
 
 class CategoryAllComponent extends Component
 {
-    public function delete($id)
+    public $delete_id;
+
+    public $listeners = ['deleteConfirmed'=>'deleteCategory'];
+
+    public function deleteConfirmation($id)
     {
-        $categories = Category::find($id);
-        $categories->delete();
-        session()->flash('notif', 'berhasil dihapus');
+        $this->delete_id = $id;
+        $this->dispacthBrowserEvent('show');
     }
+
+    public function deleteCategory()
+    {
+        $delete = Category::where('id', $this->delete_id)->first();
+        $delete->delete();
+
+        $this->dispactBrowserEvent('categoryDelete');
+    }
+
+    // public function delete($id)
+    // {
+    //     $categories = Category::find($id);
+    //     $categories->delete();
+    //     session()->flash('notif', 'berhasil dihapus');
+    // }
     
     public function render()
     {

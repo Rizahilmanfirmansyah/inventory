@@ -3,7 +3,7 @@
 namespace App\Livewire\Sales;
 
 use Livewire\Component;
-use App\Mmodels\Sales;
+use App\Models\Sales;
 
 class SalesAddComponent extends Component
 {
@@ -29,7 +29,7 @@ class SalesAddComponent extends Component
         $sales->save();
 
         session()->flash('notif', 'Data Sales Berhasil Ditambahkan');
-        return redirec()->route('sales.all');
+        return redirect()->route('sales.all');
     }
 
     public function render()

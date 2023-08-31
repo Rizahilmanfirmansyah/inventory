@@ -3,6 +3,7 @@
 namespace App\Livewire\Supplier;
 
 use Livewire\Component;
+use App\Models\Suppliers;
 
 class SupplierEditComponent extends Component
 {
@@ -43,6 +44,6 @@ class SupplierEditComponent extends Component
     }
     public function render()
     {
-        return view('livewire.supplier.supplier-edit-component');
+        return view('livewire.supplier.supplier-edit-component')->layout('layouts.layout-admin');
     }
 }

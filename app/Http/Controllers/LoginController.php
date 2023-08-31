@@ -12,13 +12,11 @@ class LoginController extends Controller
     {
         if ($user = Auth::user()) {
             if ($user->role == 'admin') {
-                return redirect()->intended('');
-            }elseif($user->role == 'user'){
-                return redirect()->intended('');
+                return redirect()->intended('dashboard.admin');
+            }elseif($user->role == 'normal_user'){
+                return redirect()->intended('product.all');
             }
         }
-
-        session()->flash('notif', 'Perikasa Kembali');
         return view('login');
         
     }
@@ -35,9 +33,9 @@ class LoginController extends Controller
         if(Auth::attempt($cek)){
             $user = Auth::user();
             if($user->role == 'admin'){
-                return redirect()->intended('');
-            }elseif($user->role == 'user'){
-                return redirect()->intended('');
+                return redirect()->intended('dashboard');
+            }elseif($user->role == 'normal_user'){
+                return redirect()->intended('all-product');
             }
 
             return redirect()->intended('/');

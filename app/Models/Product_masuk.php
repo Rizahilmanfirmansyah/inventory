@@ -21,7 +21,7 @@ class Product_masuk extends Model
 
     public function supplier()
     {
-        return $this->belongsTo(Supplier::class, 'supplier_id');
+        return $this->belongsTo(Suppliers::class, 'supplier_id');
     }
 }
 

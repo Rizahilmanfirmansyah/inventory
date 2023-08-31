@@ -35,7 +35,7 @@ class CustomerAddComponent extends Component
 
     public function render()
     {
-        $customers = Customer::all();
-        return view('livewire.customer.customer-add-component');
+        $customers = Customers::all();
+        return view('livewire.customer.customer-add-component')->layout('layouts.layout-admin');
     }
 }

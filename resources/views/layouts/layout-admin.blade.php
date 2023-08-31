@@ -83,6 +83,13 @@
             display: block;
         }
 
+        body{
+            /* background-color: #f0eeee; */
+            /* background-color: #f8f8f8; */
+        }
+
+        
+
     </style>
 </head>
 
@@ -93,31 +100,36 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-title">Dashboard</li><!-- /.menu-title -->
-                    <li class="active">
+                    <li class="">
                         <a href="{{route('dashboard.admin')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">Data</li><!-- /.menu-title -->
+                    <li class="menu-title">Data User</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-table"></i>Users</a>
+                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
                     </li>
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-plus"></i>Kategori</a>
+                        <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-user"></i>Customer</a>
                     </li>
                     <li class="">
-                        <a href="{{route('product.all')}}"><i class="menu-icon fa fa-plus"></i>Products</a>
+                        <a href="{{route('sales.all')}}"><i class="menu-icon fa fa-shopping-cart"></i>Sales</a>
                     </li>
                     <li class="">
-                        <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-plus"></i>Customer</a>
+                        <a href="{{route('suppliers.all')}}"><i class="menu-icon fa fa-truck"></i>Supplier</a>
+                    </li>
+                    <li class="menu-title">Product Item</li>
+                    <li class="">
+                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-tasks"></i>Kategori</a>
                     </li>
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-plus"></i>Penjualan</a>
+                        <a href="{{route('product.all')}}"><i class="menu-icon fa fa-archive"></i>Products</a>
                     </li>
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-plus"></i>Product Keluar</a>
+                        <a href="{{route('product_masuk.all')}}"><i class="menu-icon fa fa-sign-in"></i>Product Masuk</a>
                     </li>
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-plus"></i>Product Masuk</a>
+                        <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
                     </li>
+                    
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">
                         <a href="{{route('')}}"><i class="menu-icon fa fa-cart-arrow-down"></i>
@@ -349,8 +361,8 @@
         </header>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <br><br><br><br>
+        <div class="content color">
+            <br>
             {{$slot}}
         </div>
         <!-- /.content -->
@@ -373,7 +385,7 @@
     <!-- /#right-panel -->
 
     <!-- Scripts -->
-    @livewireScripts
+    {{-- @livewireScripts --}}
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
@@ -399,11 +411,44 @@
     {{-- <script src="https://cdn.tiny.cloud/1/g9j399iuok83vb7tkyzvjkzvmkz4puzodkt6jt8vr1j9ma1l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
     <script src="{{asset('e_admin/js/init/fullcalendar-init.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     <!--Local Stuff-->
     @livewireScripts
+    <script type="text/javascript">
+        window.addEventListener('show', ()=> {
+           Swal.fire({
+           title: 'Are you sure?',
+           text: "You won't be able to revert this!",
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes, delete it!'
+           }).then((result) => {
+           if (result.isConfirmed) {
+               Livewire.emit('deleteConfirmed');
+            }
+           });
+       });
+
+       window.addEventListener('categoryDeleted', e=> {
+            Swal.fire(
+               'Deleted!',
+               'Your file has been deleted.',
+               'success'
+               );
+
+       });
+   </script>
     <script>
+        //sweet-alert
+
+        //datatable
+        new DataTable('#data-table');
+        
         //INPUT IDR NO RP
         var tanpa_rupiah = document.getElementById('tanpa-rupiah');
 	    tanpa_rupiah.addEventListener('keyup', function(e)

@@ -34,6 +34,11 @@ class PkEditComponent extends Component
         $product_out->product_id = $this->product_id;
         $product_out->customer_id = $this->customer_id;
         $product_out->save();
+
+        $product = Product::find($this->product_id);
+        $product->qty -= $this->qty;
+        $product->save();
+
         
         session()->flash('notif', 'berhasil Di Edit');
         return redirect()->route('product_keluar.all');
@@ -41,6 +46,11 @@ class PkEditComponent extends Component
 
     public function render()
     {
-        return view('livewire.product-keluar.pk-edit-component')->layout('layouts.layout-admin');
+        $products = Product::all();
+        $customers = Customers::all();
+        return view('livewire.product-keluar.pk-edit-component', [
+            'products' => $products,
+            'customers' => $customers
+        ])->layout('layouts.layout-admin');
     }
 }

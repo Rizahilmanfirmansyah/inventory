@@ -6,17 +6,22 @@
         }
     </style>
     <div class="container">
-        <div class="d-flex justify-content-center">
-            <div class="card" style="width: 50rem;">
+        <div class="justify-content-center">
+            <div class="card" style="width: 60rem;">
                 <div class="card-header">
                     Data-Customer
                 </div>
                 <div class="card-body">
-                    @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}</div>
-                    @endif
                     <a href="{{ route('customer.add')}}" class="btn btn-success position">Add Customer</a>
-                    <table class="table">
+                    <br><br>
+                    @if (Session::has('notif'))
+                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>   
+                    </div>
+                    @endif
+                    <table class="table" id="data-table">
                         <thead>
                             <tr>
                                 <th>Nama</th>
@@ -27,15 +32,18 @@
                             </tr>
                         </thead>
                         @foreach ($customers as $customer)
-                        <tr>
-                            <td>{{$customer->nama}}</td>
-                            <td>{{$customer->alamat}}</td>
-                            <td>{{$customer->email}}</td>
-                            <td>{{$customer->telepon}}</td>
-                            <td>
-                                <a href="{{ route('customer.edit', ['customer_id'=>$customer->id])}}" class="btn btn-success">Edit</a>
-                            </td>
-                        </tr>    
+                        <tbody>
+                            <tr>
+                                <td>{{$customer->nama}}</td>
+                                <td>{{$customer->alamat}}</td>
+                                <td>{{$customer->email}}</td>
+                                <td>{{$customer->telepon}}</td>
+                                <td>
+                                    <a href="{{ route('customer.edit', ['customer_id'=>$customer->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
+                                    <a href="#" wire:click.prevent="delete({{$customer->id}})" class="btn btn-danger fa fa-trash"></a>
+                                </td>
+                            </tr> 
+                        </tbody>   
                         @endforeach                 
                     </table>
                 </div>

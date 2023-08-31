@@ -19,7 +19,6 @@ class RegisterController extends Controller
             'email'=>'required',
             'password'=>'required',
             'role'=>'required',
-            'kelas'=>'required'
         ]);
 
         $data_regist['password'] = Hash::make($data_regist['password']);

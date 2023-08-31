@@ -5,17 +5,22 @@
         }
     </style>
     <div class="container">
-        <div class="justify-content-center">
-            <a href="{{ route('product.add')}}" class="btn btn-success">Add Product</a>
+        <div class="d-flex justify-content-center">
             <div class="card position" style="width: 60rem;">
                 <div class="card-header">
                     Product
                 </div>
                 <div class="card-body">
+                    <a href="{{ route('product.add')}}" class="btn btn-success">Add Product</a>
+                    <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}</div>       
+                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     @endif
-                    <table class="table">
+                    <table class="table" id="data-table">
                         <thead>
                             <tr>
                                 <th>Foto</th>
@@ -27,17 +32,19 @@
                             </tr>
                         </thead>
                         @foreach ($products as $product)
-                        <tr>                            
-                            <td><img src="{{ asset('assets/images/product')}}/{{$product->image}}" alt="" style="width: 120px;"></td>
-                            <td>{{$product->nama}}</td>
-                            <td>{{$product->qty}}</td>
-                            <td>{{$product->harga}}</td>
-                            <td>{{$product->category->name ?? ''}}</td>
-                            <td>
-                                <a href="{{ route('product.edit',['product_id'=>$product->id])}}" class="btn btn-success">Edit</a>
-                                <a href="#" wire:click.prevent="delete({{$product->id}})" class="btn btn-secondary">Delete</a>
-                            </td>                            
-                        </tr>
+                        <tbody>
+                            <tr>                            
+                                <td><img src="{{ asset('assets/images/product')}}/{{$product->image}}" alt="" style="width: 120px;"></td>
+                                <td>{{$product->nama}}</td>
+                                <td>{{$product->qty}}</td>
+                                <td>{{$product->harga}}</td>
+                                <td>{{$product->category->name ?? ''}}</td>
+                                <td>
+                                    <a href="{{ route('product.edit',['product_id'=>$product->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
+                                    <a href="#" wire:click.prevent="deleteProduct({{$product->id}})" class="btn btn-danger fa fa-trash"></a>
+                                </td>                            
+                            </tr>
+                        </tbody>
                         @endforeach
                     </table>
                 </div>

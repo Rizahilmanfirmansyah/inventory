@@ -29,10 +29,10 @@ class SupplierAddComponent extends Component
         $suppliers->save();
 
         session()->flash('notif', 'Data Supliers Berhasil Ditambahkan');
-        return redirec()->route('suppliers.all');
+        return redirect()->route('suppliers.all');
     }
     public function render()
     {
-        return view('livewire.supplier.supplier-add-component');
+        return view('livewire.supplier.supplier-add-component')->layout('layouts.layout-admin');
     }
 }

@@ -4,6 +4,8 @@ namespace App\Livewire\ProductKeluar;
 
 use Livewire\Component;
 use App\Models\Product_keluar;
+use App\Models\Product;
+use App\Models\Customers;
 
 class PkAddComponent extends Component
 {
@@ -28,12 +30,21 @@ class PkAddComponent extends Component
         $product_out->customer_id = $this->customer_id;
         $product_out->save();
 
+        $product = Product::find($this->product_id);
+        $product->qty -= $this->qty;
+        $product->save();
+
         session()->flash('notif', 'Berhasil Di Input');
         return redirect()->route('product_keluar.all');
     }
 
     public function render()
     {
-        return view('livewire.product-keluar.pk-add-component')->layout('layouts.layout.admin');
+        $products = Product::all();
+        $customers = Customers::all();
+        return view('livewire.product-keluar.pk-add-component', [
+            'products' => $products,
+            'customers' => $customers
+        ])->layout('layouts.layout-admin');
     }
 }

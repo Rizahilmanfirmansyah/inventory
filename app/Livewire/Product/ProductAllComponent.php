@@ -7,12 +7,13 @@ use App\Models\Product;
 
 class ProductAllComponent extends Component
 {
-    public function delete($id)
+    public function deleteProduct($id)
     {
         $product = Product::find($id);
         $product->delete();
         session()->flash('notif', 'Product Berhasil Didelete');
     }
+    
     public function render()
     {
         $products = Product::all();
