@@ -3,11 +3,15 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\User;
 
 class UserAllComponent extends Component
 {
     public function render()
     {
-        return view('livewire.user-all-component');
+        $users = User::all();
+        return view('livewire.user-all-component', [
+            'users' => $users
+        ])->layout('layouts.layout-admin');
     }
 }

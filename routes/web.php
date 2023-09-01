@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 //LiveP
 use App\Livewire\DashboardComponent;
+use App\Livewire\UserAddComponent;
+use App\Livewire\UserAllComponent;
 use App\Livewire\Category\CategoryAllComponent;
 use App\Livewire\Category\CategoryAddComponent;
 use App\Livewire\Category\CategoryEditComponent;
@@ -46,6 +48,9 @@ use App\Livewire\Supplier\SupplierEditComponent;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('add-user', UserAddComponent::class)->name('user.add');
+Route::get('all-user', UserAllComponent::class)->name('user.all');
 
 //Auth
 

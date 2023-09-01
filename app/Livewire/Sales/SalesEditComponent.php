@@ -40,7 +40,7 @@ class SalesEditComponent extends Component
         $sales->save();
 
         session()->flash('notif', 'Data Sales Berhasil Diupdate');
-        return redirec()->route('sales.all');
+        return redirect()->route('sales.all');
     }
     
     public function render()

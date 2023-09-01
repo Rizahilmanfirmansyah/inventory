@@ -25,15 +25,16 @@ class UserAddComponent extends Component
         $users = new User();
         $users->name = $this->name;
         $users->email = $this->email;
-        $users->password = $this->Hash::make(['password']);
+        $users->password = Hash::make($this->password);
         $users->role = $this->role;
         $users->save();
 
-        return redirect()->route('category.all');
+        session()->flash('notif', 'Beshasil Di Tambahkan');
+        return redirect()->route('user.all');
     }
 
     public function render()
     {
-        return view('livewire.user-add-component');
+        return view('livewire.user-add-component')->layout('layouts.layout-admin');
     }
 }

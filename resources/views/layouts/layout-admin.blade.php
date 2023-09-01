@@ -85,8 +85,14 @@
 
         body{
             /* background-color: #f0eeee; */
-            /* background-color: #f8f8f8; */
+            background-color: #f8f8f8;
         }
+        /* tr{
+            text-align: center;
+        }
+        th{
+            text-align: center
+        } */
 
         
 
@@ -105,7 +111,7 @@
                     </li>
                     <li class="menu-title">Data User</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
+                        <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
                     </li>
                     <li class="">
                         <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-user"></i>Customer</a>
@@ -416,9 +422,9 @@
 
 
     <!--Local Stuff-->
-    @livewireScripts
+    
     <script type="text/javascript">
-        window.addEventListener('show', ()=> {
+        document.addEventListener('show', event => {
            Swal.fire({
            title: 'Are you sure?',
            text: "You won't be able to revert this!",
@@ -434,7 +440,7 @@
            });
        });
 
-       window.addEventListener('categoryDeleted', e=> {
+       window.addEventListener('categoryDeleted', event => {
             Swal.fire(
                'Deleted!',
                'Your file has been deleted.',
@@ -686,5 +692,6 @@
         //     selector: '#myTextarea'
         //  });
     </script>
+    @livewireScripts
 </body>
 </html>

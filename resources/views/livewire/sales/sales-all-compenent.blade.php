@@ -4,6 +4,7 @@
         .position{
             margin-top: 5px;
         }
+       
     </style>
     <div class="container">
         <div class="justify-content-center">
@@ -21,7 +22,7 @@
                         </button>
                     </div>
                     @endif 
-                    <table class="table" id="data-table">
+                    <table class="table " id="data-table">
                         <thead>
                             <tr>
                                 <th>Nama</th>
@@ -38,9 +39,12 @@
                                 <td>{{$sale->alamat}}</td>
                                 <td>{{$sale->email}}</td>
                                 <td>{{$sale->telepon}}</td>
-                                <td>
-                                    <a href="{{ route('sales.edit', ['sales_id'=>$sale->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
-                                    <a href="#" wire:click.prevent="delete({{$sale->id}})" class="btn btn-danger fa fa-trash"></a>
+                                <td class="col-2">
+                                    <div class="">
+                                        <a href="{{ route('sales.edit', ['sales_id'=>$sale->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
+                                        &nbsp;
+                                        <a href="#" wire:click.prevent="delete({{$sale->id}})" class="btn btn-danger fa fa-trash"></a>    
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>   

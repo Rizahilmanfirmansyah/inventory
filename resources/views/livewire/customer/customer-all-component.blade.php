@@ -38,7 +38,7 @@
                                 <td>{{$customer->alamat}}</td>
                                 <td>{{$customer->email}}</td>
                                 <td>{{$customer->telepon}}</td>
-                                <td>
+                                <td class="col-2">
                                     <a href="{{ route('customer.edit', ['customer_id'=>$customer->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
                                     <a href="#" wire:click.prevent="delete({{$customer->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>

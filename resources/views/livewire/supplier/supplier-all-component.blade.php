@@ -38,7 +38,7 @@
                                 <td>{{$supplier->alamat}}</td>
                                 <td>{{$supplier->email}}</td>
                                 <td>{{$supplier->telepon}}</td>
-                                <td>
+                                <td class="col-2">
                                     <a href="{{ route('suppliers.edit', ['suppliers_id'=>$supplier->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
                                     <a href="#" wire:click.prevent="delete({{$supplier->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>
