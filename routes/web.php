@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CustomerImportController;
 //LiveP
 use App\Livewire\DashboardComponent;
 use App\Livewire\UserAddComponent;
@@ -99,6 +100,10 @@ Route::get('edit-product_in/{pm_id}', PmEditComponent::class)->name('product_mas
 Route::get('all-product_out', PkAllComponent::class)->name('product_keluar.all');
 Route::get('add-product_out', PkAddComponent::class)->name('product_keluar.add');
 Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_keluar.edit');
+
+//import_route
+Route::post('import-customer', [CustomerImportController::class, 'CustomerImport'])->name('customer.import');
+Route::get('export-customer', [CustomerImportController::class, 'CustomerExport'])->name('customer.export');
 
 
 

@@ -418,13 +418,14 @@
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
     <script src="{{asset('e_admin/js/init/fullcalendar-init.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
 
     <!--Local Stuff-->
     
     <script type="text/javascript">
-        document.addEventListener('show', event => {
+        window.addEventListener('show', event => {
            Swal.fire({
            title: 'Are you sure?',
            text: "You won't be able to revert this!",

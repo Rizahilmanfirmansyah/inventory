@@ -13,6 +13,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('customer.add')}}" class="btn btn-success position">Add Customer</a>
+                    <a href="{{ route('customer.export')}}" class="btn btn-secondary">Export Data Customer</a>
                     <br><br>
                     @if (Session::has('notif'))
                     <div class="alert alert-success" role="alert">{{Session::get('notif')}}
@@ -48,6 +49,20 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="card" style="width: 24rem;">
+            <div class="card-header">
+                Import Data
+            </div>
+            <div class="card-body">
+                <form action="{{ route('customer.import')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Import Data</label>
+                        <input type="file" name="file" id="formFile" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
         </div>
     </div>
 </div>

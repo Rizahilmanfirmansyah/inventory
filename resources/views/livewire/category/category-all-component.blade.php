@@ -34,7 +34,7 @@
                                 <td>
                                     <a href="{{ route('category.edit', ['category_id'=>$category->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
                                     &nbsp;
-                                    <a href="#" wire:click.prevent="deleteConfirmation({{$category->id}})" class="btn btn-danger fa fa-trash"></a>
+                                    <a href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{$category->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>
                             </tr>
                             @endforeach       
@@ -44,6 +44,41 @@
             </div>
         </div>
     </div>
-   
+    @push('scripts')
+    <script>
+        window.addEventListener('show', function(e){
+           Swal.fire({
+           title: 'Are you sure?',
+           text: "You won't be able to revert this!",
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes, delete it!'
+           }).then((result) => {
+           if (result.isConfirmed) {
+               Livewire.emit('deleteConfirmed');
+            }
+           });
+        });
+    //     window.addEventListener('show', event => {
+    //        Swal.fire({
+    //        title: 'Are you sure?',
+    //        text: "You won't be able to revert this!",
+    //        icon: 'warning',
+    //        showCancelButton: true,
+    //        confirmButtonColor: '#3085d6',
+    //        cancelButtonColor: '#d33',
+    //        confirmButtonText: 'Yes, delete it!'
+    //        }).then((result) => {
+    //        if (result.isConfirmed) {
+    //            Livewire.emit('deleteConfirmed');
+    //         }
+    //        });
+    //    });
+    </script>
+        
+    @endpush
+
  
 </div>

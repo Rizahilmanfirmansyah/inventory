@@ -14,7 +14,9 @@ class CategoryAllComponent extends Component
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
-        $this->dispacthBrowserEvent('show');
+        $this->dispatchBrowserEvent('show', [
+            'title' => 'tag-delete'
+        ]);
     }
 
     public function deleteCategory()
@@ -22,7 +24,7 @@ class CategoryAllComponent extends Component
         $delete = Category::where('id', $this->delete_id)->first();
         $delete->delete();
 
-        $this->dispactBrowserEvent('categoryDelete');
+        $this->dispatchBrowserEvent('categoryDelete');
     }
 
     // public function delete($id)
