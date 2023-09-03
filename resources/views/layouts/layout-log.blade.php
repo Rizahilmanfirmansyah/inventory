@@ -115,31 +115,11 @@
                     </li>
                     <li class="menu-title">Data User</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
-                    </li>
+                        <a href="{{route('activity.all')}}"><i class="menu-icon fa fa-group"></i>Log Aktivitas</a>
+                    </li>  
                     <li class="">
-                        <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-user"></i>Customer</a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('sales.all')}}"><i class="menu-icon fa fa-shopping-cart"></i>Sales</a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('suppliers.all')}}"><i class="menu-icon fa fa-truck"></i>Supplier</a>
-                    </li>
-                    <li class="menu-title">Product Item</li>
-                    <li class="">
-                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-tasks"></i>Kategori</a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('product.all')}}"><i class="menu-icon fa fa-archive"></i>Products</a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('product_masuk.all')}}"><i class="menu-icon fa fa-sign-in"></i>Product Masuk</a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
-                    </li>
-                    
+                        <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-group"></i>Aktivitas Produk</a>
+                    </li>    
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">
                         <a href="{{route('')}}"><i class="menu-icon fa fa-cart-arrow-down"></i>

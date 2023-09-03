@@ -29,6 +29,9 @@ use App\Livewire\Sales\SalesAddComponent;
 use App\Livewire\Supplier\SupplierAddComponent;
 use App\Livewire\Supplier\SupplierAllComponent;
 use App\Livewire\Supplier\SupplierEditComponent;
+use App\Livewire\Activity\ActivityAllComponent;
+use App\Livewire\Activity\productActivityComponent;
+
 
 
 
@@ -70,6 +73,9 @@ Route::post('logout', [LoginController::class, 'aksilogout'])->name('aksilogout'
 
 Route::get('reg', [RegisterController::class, 'index'])->name('register');
 Route::post('aksireg', [RegisterController::class, 'aksireg'])->name('aksireg');
+
+Route::get('all-activity', ActivityAllComponent::class)->name('activity.all');
+Route::get('product-activity', ProductActivityComponent::class )->name('product.activity');
 
 Route::get('dashboard', DashboardComponent::class)->name('dashboard.admin');
 

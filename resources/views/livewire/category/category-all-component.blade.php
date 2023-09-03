@@ -34,7 +34,8 @@
                                 <td>
                                     <a href="{{ route('category.edit', ['category_id'=>$category->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
                                     &nbsp;
-                                    <a href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{$category->id}})" class="btn btn-danger fa fa-trash"></a>
+                                    {{-- <a href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{$category->id}})" class="btn btn-danger fa fa-trash"></a> --}}
+                                    <a href="#" wire:click.prevent="delete({{$category->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>
                             </tr>
                             @endforeach       
@@ -46,7 +47,7 @@
     </div>
     @push('scripts')
     <script>
-        window.addEventListener('show', function(e){
+        document.addEventListener('show', function(e){
            Swal.fire({
            title: 'Are you sure?',
            text: "You won't be able to revert this!",
