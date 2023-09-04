@@ -40,7 +40,7 @@ class SupplierEditComponent extends Component
         $suppliers->save();
 
         session()->flash('notif', 'Data Supplier Berhasil Diupdate');
-        return redirec()->route('suppliers.all');
+        return redirect()->route('suppliers.all');
     }
     public function render()
     {

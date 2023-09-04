@@ -8,6 +8,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('product_masuk.add')}}" class="btn btn-success">Add Product Incoming</a>
+                    <a href="{{ route('product_masuk.export')}}" class="btn btn-secondary">Export Data</a>
                     <br><br>
                     @if (Session::has('notif'))
                     <div class="alert alert-success" role="alert">{{Session::get('notif')}}

@@ -19,9 +19,8 @@ class Category extends Model
     ];
 
     // protected static $LogAttributes = ['name'];
-
     // protected static $logFillable = true;
-    // protected static $logOnlyDirty = true;
+    protected static $logOnlyDirty = true;
 
     public function getDescriptionForEvent(string $eventName): string {
         return $this->description . " {$eventName} Oleh " . Auth::user()->name;
@@ -31,6 +30,7 @@ class Category extends Model
     {
         return LogOptions::defaults()
         ->useLogName('category');
+        // ->withProperties(['name' => 'testuser']);
         
     }
 

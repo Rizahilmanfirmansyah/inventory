@@ -34,7 +34,7 @@ class PmAddComponent extends Component
         $product->qty += $this->qty;
         $product->save();
 
-        session()->flash('notif', 'Produk keluar Telah Ditambahkan');
+        session()->flash('notif', 'Produk masuk Telah Ditambahkan');
         return redirect()->route('product_masuk.all');
 
     }

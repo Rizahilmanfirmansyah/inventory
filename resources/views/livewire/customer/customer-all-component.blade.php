@@ -57,10 +57,17 @@
             <div class="card-body">
                 <form action="{{ route('customer.import')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
-                        <label for="">Import Data</label>
-                        <input type="file" name="file" id="formFile" class="form-control">
-                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                      </div>
+                      <br>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
         </div>

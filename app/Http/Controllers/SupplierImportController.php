@@ -10,26 +10,26 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SupplierImportController extends Controller
 {
-    public function Import(Request $request)
+    public function SupplierImport(Request $request)
     {
         $this->validate($request, [
             'file' => 'required'
         ]);
 
-        $file = $this->file('file');
+        $file = $request->file('file');
 
-        return Excel::import(new SupplierImport(), $request->file('file'));
+        $import = Excel::import(new SupplierImport(), $request->file('file'));
 
         if ($import) {
             # code...
-            session()->flash('notif', 'import berhasil di tambahkan');
+            return redirect()->route('suppliers.all')->with('notif', 'Import Data Berhasil');
         } else {
             session()->flash('notif', 'import gagal di tambahkan');
 
         }
     }
 
-    public function export()
+    public function SupplierExport()
     {
         return Excel::download(new SupplierExport(), 'data_suplier.xlsx');
         session()->flash('notif', 'Data Supplier Berhasil Di Download');

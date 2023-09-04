@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CustomerImportController;
+use App\Http\Controllers\ProductMasukController;
+use App\Http\Controllers\ProductKeluarController;
+use App\Http\Controllers\SupplierImportController;
+use App\Http\Controllers\SalesImportController;
 //LiveP
 use App\Livewire\DashboardComponent;
 use App\Livewire\UserAddComponent;
@@ -29,7 +33,6 @@ use App\Livewire\Sales\SalesAddComponent;
 use App\Livewire\Supplier\SupplierAddComponent;
 use App\Livewire\Supplier\SupplierAllComponent;
 use App\Livewire\Supplier\SupplierEditComponent;
-use App\Livewire\Activity\ActivityAllComponent;
 use App\Livewire\Activity\productActivityComponent;
 
 
@@ -74,7 +77,6 @@ Route::post('logout', [LoginController::class, 'aksilogout'])->name('aksilogout'
 Route::get('reg', [RegisterController::class, 'index'])->name('register');
 Route::post('aksireg', [RegisterController::class, 'aksireg'])->name('aksireg');
 
-Route::get('all-activity', ActivityAllComponent::class)->name('activity.all');
 Route::get('product-activity', ProductActivityComponent::class )->name('product.activity');
 
 Route::get('dashboard', DashboardComponent::class)->name('dashboard.admin');
@@ -110,6 +112,13 @@ Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_ke
 //import_route
 Route::post('import-customer', [CustomerImportController::class, 'CustomerImport'])->name('customer.import');
 Route::get('export-customer', [CustomerImportController::class, 'CustomerExport'])->name('customer.export');
+Route::get('export-product_masuk', [ProductMasukController::class , 'ProductMasukExport'])->name('product_masuk.export');
+Route::get('export-product_keluar', [ProductKeluarController::class, 'ProductKeluarExport'])->name('product_keluar.export');
+Route::post('import-supplier', [SupplierImportController::class, 'SupplierImport'])->name('supplier.import');
+Route::get('export-supplier', [SupplierImportController::class, 'SupplierExport'])->name('supplier.export');
+Route::get('export-sales', [SalesImportController::class, 'SalesExport'])->name('sales.export');
+Route::post('import-sales', [SalesImportController::class, 'SalesImport'])->name('sales.import');
+
 
 
 

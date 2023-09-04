@@ -13,6 +13,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('suppliers.add')}}" class="btn btn-success position">Add Supplier</a>
+                    <a href="{{ route('supplier.export')}}" class="btn btn-secondary position">Export Data</a>
                     <br><br>
                     @if (Session::has('notif'))
                     <div class="alert alert-success" role="alert">{{Session::get('notif')}}
@@ -47,6 +48,28 @@
                         @endforeach    
                     </table>
                 </div>
+            </div>
+        </div>
+        <div class="card" style="width: 24rem;">
+            <div class="card-header">
+                Import Data
+            </div>
+            <div class="card-body">
+                <form action="{{ route('supplier.import')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                      </div>
+                      <br>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
             </div>
         </div>
     </div>

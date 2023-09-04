@@ -7,6 +7,14 @@ use App\Models\Sales;
 
 class SalesAllCompenent extends Component
 {
+
+    public function delete($id)
+    {
+        $sales = Sales::find($id);
+        $sales->delete();
+
+        session()->flash('notif', 'Sales Berhasil Dihapus');
+    }
     
     public function render()
     {

@@ -2,19 +2,18 @@
 
 namespace App\Exports;
 
-use App\Models\Customers;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use App\Models\Sales;
 
-
-class CustomerExport implements FromCollection, WithHeadings
+class SalesExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Customers::all();
+        return Sales::all();
     }
 
     public function headings(): array
@@ -28,5 +27,6 @@ class CustomerExport implements FromCollection, WithHeadings
             'created_at',
             'updated_at,'
         ];
+
     }
 }
