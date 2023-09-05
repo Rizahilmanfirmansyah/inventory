@@ -16,11 +16,9 @@
                     <a href="{{ route('supplier.export')}}" class="btn btn-secondary position">Export Data</a>
                     <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
                     <table class="table" id="data-table">
                         <thead>
@@ -52,22 +50,15 @@
         </div>
         <div class="card" style="width: 24rem;">
             <div class="card-header">
-                Import Data
+                Import Data Supplier
             </div>
             <div class="card-body">
                 <form action="{{ route('supplier.import')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                          <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                      </div>
-                      <br>
+                    <div class="input-group mb-3">
+                        {{-- <label class="input-group-text" for="inputGroupFile01">Upload</label> --}}
+                        <input type="file" name="file" class="form-control" id="inputGroupFile01">
+                    </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>

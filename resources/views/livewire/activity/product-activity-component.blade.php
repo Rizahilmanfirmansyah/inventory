@@ -2,12 +2,12 @@
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <div class="container">
         <div class="justify-content-center">
-            <div class="card" style="width: 50rem;">
+            <div class="card" style="width: 60rem;">
                 <div class="card-header">
-
+                    Log Product Activity
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table nowrap" id="data-table">
                         <thead>
                             <tr>
                                 <th>Log Name</th>

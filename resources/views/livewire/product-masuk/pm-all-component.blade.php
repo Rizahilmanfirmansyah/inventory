@@ -11,13 +11,11 @@
                     <a href="{{ route('product_masuk.export')}}" class="btn btn-secondary">Export Data</a>
                     <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
-                    <table class="table" id="data-table">
+                    <table class="table" id="product-masuk">
                         <thead>
                             <tr>
                                 <th>Nama Produk</th>
@@ -27,8 +25,8 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @foreach ($products_masuk as $product_masuk)
                         <tbody>
+                            @foreach ($products_masuk as $product_masuk)
                             <tr>
                                 <td>{{$product_masuk->product->nama}}</td>
                                 <td>{{$product_masuk->supplier->nama}}</td>
@@ -38,11 +36,16 @@
                                     <a href="{{ route('product_masuk.edit', ['pm_id'=>$product_masuk->id])}}" class="btn btn-secondary fa fa-pencil-square-o"></a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        new DataTable('#product-masuk', {
+            order: [['3', 'desc']]
+        });
+    </script>
 </div>

@@ -1,9 +1,15 @@
+@extends('layouts.layout-login')
+
+@section('content')
+    
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<head>
+{{-- <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>The Inventory</title>
@@ -33,7 +39,7 @@
         }
 
     </style>
-</head>
+</head> --}}
 <body>
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -48,11 +54,9 @@
                         <h3><b style="color: #2FDBBC;">The</b> Inventory</h3>
                     </div>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" aria-dismiss="close" aria-label="alert">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
                     <form action="{{ route('aksilogin')}}" method="post">
                         @csrf
@@ -70,14 +74,15 @@
                             <span class="error">{{$message}}</span>
                             @enderror
                         </div>
-                        <div class="checkbox">
+                        <div class="checkbox" style="margin-top: 15px;">
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
-                            <label class="pull-right">
+                            {{-- <label class="pull-right">
                                 <a href="#">Forgotten Password?</a>
-                            </label>
+                            </label> --}}
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                         {{-- <div class="social-login-content">
                             <div class="social-button">
@@ -102,6 +107,7 @@
 
 </body>
 </html>
+@endsection
 
 
 {{-- <div class="container" style="margin-top: 10rem;">

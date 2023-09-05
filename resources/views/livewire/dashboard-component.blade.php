@@ -2,92 +2,110 @@
     <h3>Dashboard Hi, Admin</h3>
     <br>
     <div class="row">
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-1">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
                 <div class="card-body">
-                    <div class="card-left pt-1 float-left">
-                        <h3 class="mb-0 fw-r">
-                            {{-- <span class="currency float-left mr-1">$</span> --}}
-                            <span class="count">{{$product}}</span>
-                        </h3>
-                        <p class="text-light mt-1 m-0">Product</p>
-                    </div><!-- /.card-left -->
-
-                    <div class="card-right float-right text-right">
-                        <i class="icon fade-5 icon-lg ti-briefcase"></i>
-                    </div><!-- /.card-right -->
-
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-1">
+                            <i class="pe-7s-cash"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{$customer}}</span></div>
+                                <div class="stat-heading">Customer</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-        <!--/.col-->
-
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-6">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
                 <div class="card-body">
-                    <div class="card-left pt-1 float-left">
-                        <h3 class="mb-0 fw-r">
-                            <span class="count">{{$customer}}</span>
-                            <span></span>
-                        </h3>
-                        <p class="text-light mt-1 m-0">Customer</p>
-                    </div><!-- /.card-left -->
-
-                    <div class="card-right float-right text-right">
-                        <i class="icon fade-5 icon-lg ti-shopping-cart"></i>
-                    </div><!-- /.card-right -->
-
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-2">
+                            <i class="pe-7s-cart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{$supplier}}</span></div>
+                                <div class="stat-heading">Supplier</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-        <!--/.col-->
-
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-3">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
                 <div class="card-body">
-                    <div class="card-left pt-1 float-left">
-                        <h3 class="mb-0 fw-r">
-                            <span class="count">{{$supplier}}</span>
-                        </h3>
-                        <p class="text-light mt-1 m-0">Supplier</p>
-                    </div><!-- /.card-left -->
-
-                    <div class="card-right float-right text-right">
-                        <i class="icon fade-5 icon-lg ti ti-truck"></i>
-                    </div><!-- /.card-right -->
-
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-3">
+                            <i class="pe-7s-browser"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{$product}}</span></div>
+                                <div class="stat-heading">Product</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-        <!--/.col-->
-
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
                 <div class="card-body">
-                    <div class="card-left pt-1 float-left">
-                        <h3 class="mb-0 fw-r">
-                            <span class="count">{{$user}}</span>
-                        </h3>
-                        <p class="text-light mt-1 m-0">New users</p>
-                    </div><!-- /.card-left -->
-
-                    <div class="card-right float-right text-right">
-                        <i class="icon fade-5 icon-lg ti-user"></i>
-                    </div><!-- /.card-right -->
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4">
+                            <i class="pe-7s-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{$user}}</span></div>
+                                <div class="stat-heading">User</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                Product
+            </div>
+            <div class="card-body">
+                <table class="table table-head">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Jumlah</th>
+                            <th>Kategori</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($products as $product)
+                        <tr>
+                            <td>{{$product->nama}}</td>
+                            <td>{{$product->qty}}</td>
+                            <td>{{$product->category->name}}</td>              
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="col-lg-12">
+    {{-- <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">Custom Table</strong>
             </div>
             <div class="table-stats order-table ov-h">
-                <table class="table" id="">
+                <table class="table" id="data-product">
                     <thead>
                         <tr>
                             <th class="serial">#</th>
@@ -164,5 +182,12 @@
                 </table>
             </div> <!-- /.table-stats -->
         </div>
-    </div>
+    </div> --}}
+    <script>
+        new DataTable('#data-product', {
+            info: false,
+            order: false,
+            paging: false
+        });
+    </script>
 </div>

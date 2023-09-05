@@ -10,11 +10,9 @@
                     <a href="{{route('user.add')}}" class="btn btn-success">Add New User</a>
                     <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" aria-dismiss="close" aria-label="close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>   
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
                     <table class="table" id="data-table">
                         <thead>

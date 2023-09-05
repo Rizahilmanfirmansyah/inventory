@@ -12,6 +12,7 @@
                             <label for="Name">Nama Kategori</label>
                             <input type="text" class="form-control" wire:model="name">
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-success">Add Category</button>
                     </form>
                 </div>

@@ -13,14 +13,12 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('customer.add')}}" class="btn btn-success position">Add Customer</a>
-                    <a href="{{ route('customer.export')}}" class="btn btn-secondary">Export Data Customer</a>
+                    <a href="{{ route('customer.export')}}" class="btn btn-secondary position">Export Data Customer</a>
                     <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>   
-                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
                     <table class="table" id="data-table">
                         <thead>
@@ -32,8 +30,8 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @foreach ($customers as $customer)
                         <tbody>
+                            @foreach ($customers as $customer)
                             <tr>
                                 <td>{{$customer->nama}}</td>
                                 <td>{{$customer->alamat}}</td>
@@ -44,31 +42,24 @@
                                     <a href="#" wire:click.prevent="delete({{$customer->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>
                             </tr> 
+                            @endforeach                 
                         </tbody>   
-                        @endforeach                 
                     </table>
                 </div>
             </div>
         </div>
         <div class="card" style="width: 24rem;">
             <div class="card-header">
-                Import Data
+                Import Data Customer
             </div>
             <div class="card-body">
                 <form action="{{ route('customer.import')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                          <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                      </div>
-                      <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="input-group mb-3">
+                        {{-- <label class="input-group-text" for="inputGroupFile01">Upload</label> --}}
+                        <input type="file" name="file" class="form-control" id="inputGroupFile01">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
         </div>
     </div>

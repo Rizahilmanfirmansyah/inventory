@@ -14,13 +14,11 @@
                     <a href="{{ route('product.add')}}" class="btn btn-success">Add Product</a>
                     <br><br>
                     @if (Session::has('notif'))
-                    <div class="alert alert-success" role="alert">{{Session::get('notif')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
                     @endif
-                    <table class="table" id="data-table">
+                    <table class="table" id="product-all">
                         <thead>
                             <tr>
                                 <th>Foto</th>
@@ -31,8 +29,8 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @foreach ($products as $product)
                         <tbody>
+                            @foreach ($products as $product)
                             <tr>                            
                                 <td><img src="{{ asset('assets/images/product')}}/{{$product->image}}" alt="" style="width: 120px;"></td>
                                 <td>{{$product->nama}}</td>
@@ -44,11 +42,16 @@
                                     <a href="#" wire:click.prevent="deleteProduct({{$product->id}})" class="btn btn-danger fa fa-trash"></a>
                                 </td>                            
                             </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        new DataTable('#product-all', {
+            order: [['2', 'desc']]
+        });
+    </script>
 </div>

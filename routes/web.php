@@ -33,7 +33,9 @@ use App\Livewire\Sales\SalesAddComponent;
 use App\Livewire\Supplier\SupplierAddComponent;
 use App\Livewire\Supplier\SupplierAllComponent;
 use App\Livewire\Supplier\SupplierEditComponent;
-use App\Livewire\Activity\productActivityComponent;
+use App\Livewire\Activity\ProductActivityComponent;
+use App\Livewire\Activity\ProductKeluarActivityComponent;
+use App\Livewire\Activity\ProductMasukActivityComponent;
 
 
 
@@ -77,8 +79,6 @@ Route::post('logout', [LoginController::class, 'aksilogout'])->name('aksilogout'
 Route::get('reg', [RegisterController::class, 'index'])->name('register');
 Route::post('aksireg', [RegisterController::class, 'aksireg'])->name('aksireg');
 
-Route::get('product-activity', ProductActivityComponent::class )->name('product.activity');
-
 Route::get('dashboard', DashboardComponent::class)->name('dashboard.admin');
 
 Route::get('index-category', CategoryAllComponent::class)->name('category.all');
@@ -108,6 +108,11 @@ Route::get('edit-product_in/{pm_id}', PmEditComponent::class)->name('product_mas
 Route::get('all-product_out', PkAllComponent::class)->name('product_keluar.all');
 Route::get('add-product_out', PkAddComponent::class)->name('product_keluar.add');
 Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_keluar.edit');
+
+//activity
+Route::get('product-activity', ProductActivityComponent::class)->name('product.activity');
+Route::get('product_out-activity', ProductKeluarActivityComponent::class)->name('product_keluar.activity');
+Route::get('product_in-activity', ProductMasukActivityComponent::class)->name('product_masuk.activity');
 
 //import_route
 Route::post('import-customer', [CustomerImportController::class, 'CustomerImport'])->name('customer.import');
