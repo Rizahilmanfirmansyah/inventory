@@ -10,6 +10,15 @@ class LoginController extends Controller
 {
     public function index()
     {
+         if ($user = Auth::user()) {
+            if ($user->role == 'admin') {
+                return redirect()->intended('dashboard');
+            }elseif($user->role == 'normal_user'){
+                return redirect()->intended('all-product');
+            }elseif($user->role == 'supervisor_admin'){
+                return redirect()->intended('product-activity');
+            }
+        }
         return view('login');   
     }
 

@@ -147,11 +147,11 @@
                     <li class="">
                         <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
                     </li>
-                    @if (Auth::user()->role === 'supervisor_admin')
+                    {{-- @if (Auth::user()->role === 'supervisor_admin')
                     <li class="">
                         <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-sign-out"></i>All Activity</a>
                     </li>                         
-                    @endif
+                    @endif --}}
                     
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">

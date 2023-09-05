@@ -118,16 +118,40 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-title">Dashboard</li><!-- /.menu-title -->
-                    <li class="active">
-                        <a href="{{route('')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
-                    </li>
-                    <li class="menu-title">Data Pelanggaran</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{route('')}}"><i class="menu-icon fa fa-table"></i>Semua Produk</a>
+                        <a href="{{route('dashboard.admin')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    </li>
+                    {{-- <li class="menu-title">Data User</li><!-- /.menu-title --> --}}
+                    {{-- <li class="">
+                        <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
+                    </li> --}}
+                    {{-- <li class="">
+                        <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-user"></i>Customer</a>
                     </li>
                     <li class="">
-                        <a href="{{route('')}}"><i class="menu-icon fa fa-plus"></i>Tambah Produk</a>
+                        <a href="{{route('sales.all')}}"><i class="menu-icon fa fa-shopping-cart"></i>Sales</a>
                     </li>
+                    <li class="">
+                        <a href="{{route('suppliers.all')}}"><i class="menu-icon fa fa-truck"></i>Supplier</a>
+                    </li> --}}
+                    <li class="menu-title">Product Item</li>
+                    <li class="">
+                        <a href="{{route('category.all')}}"><i class="menu-icon fa fa-tasks"></i>Kategori</a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('product.all')}}"><i class="menu-icon fa fa-archive"></i>Products</a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('product_masuk.all')}}"><i class="menu-icon fa fa-sign-in"></i>Product Masuk</a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
+                    </li>
+                    {{-- @if (Auth::user()->role === 'supervisor_admin')
+                    <li class="">
+                        <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-sign-out"></i>All Activity</a>
+                    </li>                         
+                    @endif --}}
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">
                         <a href="{{route('')}}"><i class="menu-icon fa fa-cart-arrow-down"></i>

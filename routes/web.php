@@ -59,19 +59,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('add-user', UserAddComponent::class)->name('user.add');
-Route::get('all-user', UserAllComponent::class)->name('user.all');
-
 //Auth
-
-Route::group(['middlewire' =>  ['auth']], function(){
-    Route::group(['middlewire' => ['role:admin']], function(){
+Route::group(['middleware' =>  ['auth']], function(){
+    Route::group(['middleware' => ['role:admin']], function(){
 
     });
     Route::group(['middleware' => ['role:normal_user']], function(){
 
     });
+    Route::group(['middleware' => ['role:supervisor_admin']], function(){
+        
+    });
 });
+
+Route::get('all-user', UserAllComponent::class)->name('user.all');
+Route::get('add-user', UserAddComponent::class)->name('user.add');
+Route::get('product-activity', ProductActivityComponent::class)->name('product.activity');
+Route::get('product_out-activity', ProductKeluarActivityComponent::class)->name('product_keluar.activity');
+Route::get('product_in-activity', ProductMasukActivityComponent::class)->name('product_masuk.activity');
+
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('aksilogin', [LoginController::class, 'aksilogin'])->name('aksilogin');
@@ -109,11 +115,6 @@ Route::get('edit-product_in/{pm_id}', PmEditComponent::class)->name('product_mas
 Route::get('all-product_out', PkAllComponent::class)->name('product_keluar.all');
 Route::get('add-product_out', PkAddComponent::class)->name('product_keluar.add');
 Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_keluar.edit');
-
-//activity
-Route::get('product-activity', ProductActivityComponent::class)->name('product.activity');
-Route::get('product_out-activity', ProductKeluarActivityComponent::class)->name('product_keluar.activity');
-Route::get('product_in-activity', ProductMasukActivityComponent::class)->name('product_masuk.activity');
 
 //import_route
 Route::post('import-customer', [CustomerImportController::class, 'CustomerImport'])->name('customer.import');

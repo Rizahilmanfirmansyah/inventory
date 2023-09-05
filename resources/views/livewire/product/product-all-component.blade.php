@@ -19,7 +19,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div> 
                     @endif
-                    <table class="table" id="product-all">
+                    <table class="table" id="data-product-all">
                         <thead>
                             <tr>
                                 <th>Foto</th>
@@ -51,7 +51,7 @@
         </div>
     </div>
     <script>
-        new DataTable('#product-all', {
+        new DataTable('#data-product-all', {
             order: [['2', 'desc']]
         });
     </script>
