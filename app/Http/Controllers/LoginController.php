@@ -10,15 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if ($user = Auth::user()) {
-            if ($user->role == 'admin') {
-                return redirect()->intended('dashboard.admin');
-            }elseif($user->role == 'normal_user'){
-                return redirect()->intended('product.all');
-            }
-        }
-        return view('login');
-        
+        return view('login');   
     }
 
     public function aksilogin(Request $request)
@@ -36,6 +28,8 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard');
             }elseif($user->role == 'normal_user'){
                 return redirect()->intended('all-product');
+            }elseif($user->role == 'supervisor_admin'){
+                return redirect()->intended('product-activity');
             }
 
             return redirect()->intended('/');

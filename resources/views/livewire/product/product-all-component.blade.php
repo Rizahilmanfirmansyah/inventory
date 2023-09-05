@@ -12,6 +12,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('product.add')}}" class="btn btn-success">Add Product</a>
+                    <a href="{{ route('product.export')}}" class="btn btn-secondary">Export Data Product</a>
                     <br><br>
                     @if (Session::has('notif'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}

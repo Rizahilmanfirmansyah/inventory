@@ -53,11 +53,13 @@
                     <div class="title text-center">
                         <h3><b style="color: #2FDBBC;">The</b> Inventory</h3>
                     </div>
-                    @if (Session::has('notif'))
+                    <div style="margin-top: 15px;">
+                        @if (Session::has('notif'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('notif')}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div> 
-                    @endif
+                        @endif
+                    </div>
                     <form action="{{ route('aksilogin')}}" method="post">
                         @csrf
                         <div class="form-group">

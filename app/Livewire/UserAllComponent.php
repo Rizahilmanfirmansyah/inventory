@@ -12,6 +12,6 @@ class UserAllComponent extends Component
         $users = User::all();
         return view('livewire.user-all-component', [
             'users' => $users
-        ])->layout('layouts.layout-admin');
+        ])->layout('layouts.layout-log');
     }
 }

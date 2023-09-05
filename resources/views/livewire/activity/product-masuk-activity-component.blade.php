@@ -7,7 +7,7 @@
                     Log Product Activity
                 </div>
                 <div class="card-body">
-                    <table class="table nowrap" id="data-table">
+                    <table class="table nowrap" id="data-activity">
                         <thead>
                             <tr>
                                 <th>Log Name</th>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductMasukController;
 use App\Http\Controllers\ProductKeluarController;
 use App\Http\Controllers\SupplierImportController;
 use App\Http\Controllers\SalesImportController;
+use App\Http\Controllers\ProductExportController;
 //LiveP
 use App\Livewire\DashboardComponent;
 use App\Livewire\UserAddComponent;
@@ -123,6 +124,7 @@ Route::post('import-supplier', [SupplierImportController::class, 'SupplierImport
 Route::get('export-supplier', [SupplierImportController::class, 'SupplierExport'])->name('supplier.export');
 Route::get('export-sales', [SalesImportController::class, 'SalesExport'])->name('sales.export');
 Route::post('import-sales', [SalesImportController::class, 'SalesImport'])->name('sales.import');
+Route::get('export-product', [ProductExportController::class, 'ProductExport'])->name('product.export');
 
 
 

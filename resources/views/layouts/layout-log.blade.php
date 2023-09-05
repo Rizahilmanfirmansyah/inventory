@@ -122,9 +122,9 @@
                         <a href="{{route('dashboard.admin')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Data User</li><!-- /.menu-title -->
-                    {{-- <li class="">
-                        <a href="{{route('activity.all')}}"><i class="menu-icon fa fa-group"></i>Log Aktivitas</a>
-                    </li>   --}}
+                    <li class="">
+                        <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
+                    </li>
                     <li class="">
                         <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-group"></i>Aktivitas Produk</a>
                     </li> 
@@ -455,7 +455,9 @@
         //sweet-alert
 
         //datatable
-        new DataTable('#data-table');
+        new DataTable('#data-activity', {
+            order: [['2', 'desc']]
+        });
         
         //INPUT IDR NO RP
         var tanpa_rupiah = document.getElementById('tanpa-rupiah');

@@ -122,9 +122,9 @@
                         <a href="{{route('dashboard.admin')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Data User</li><!-- /.menu-title -->
-                    <li class="">
+                    {{-- <li class="">
                         <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
-                    </li>
+                    </li> --}}
                     <li class="">
                         <a href="{{route('customer.all')}}"><i class="menu-icon fa fa-user"></i>Customer</a>
                     </li>
@@ -147,6 +147,11 @@
                     <li class="">
                         <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
                     </li>
+                    @if (Auth::user()->role === 'supervisor_admin')
+                    <li class="">
+                        <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-sign-out"></i>All Activity</a>
+                    </li>                         
+                    @endif
                     
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">
