@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <form wire:submit.prevent="editProductOut">
                         <div class="form-group">
-                            <label for="">Produk</label>
+                            <label for="" class="form-label">Produk</label>
                             <select name="" id="" class="form-control" wire:model="product_id">
                                 <option value="#" selected>Pilih Jenis Product</option>
                                 @foreach ($products as $product)
@@ -19,7 +19,7 @@
                             @error('product_id') <span class="error">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Supplier</label>
+                            <label for="" class="form-label">Supplier</label>
                             <select name="" id="" class="form-control" wire:model="customer_id">
                                 <option value="#" selected>Supplier Dari</option>
                                 @foreach ($customers as $customer)
@@ -28,11 +28,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Quantity</label>
+                            <label for="" class="form-label">Quantity</label>
                             <input type="text" class="form-control" wire:model="qty">
                         </div>
                         <div class="form-group">
-                            <label for="">Tanggal</label>
+                            <label for="" class="form-label">Tanggal</label>
                             <input type="date" class="form-control" wire:model="tanggal">
                         </div>
                         <br>

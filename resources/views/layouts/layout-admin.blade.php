@@ -147,6 +147,9 @@
                     <li class="">
                         <a href="{{route('product_keluar.all')}}"><i class="menu-icon fa fa-sign-out"></i>Product Keluar</a>
                     </li>
+                    <li class="">
+                        <a href="{{route('retur.all')}}"><i class="menu-icon fa fa-inbox"></i>Product Retur</a>
+                    </li>
                     {{-- @if (Auth::user()->role === 'supervisor_admin')
                     <li class="">
                         <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-sign-out"></i>All Activity</a>

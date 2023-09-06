@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductKeluarController;
 use App\Http\Controllers\SupplierImportController;
 use App\Http\Controllers\SalesImportController;
 use App\Http\Controllers\ProductExportController;
+use App\Http\Controllers\ReturImportController;
 //LiveP
 use App\Livewire\DashboardComponent;
 use App\Livewire\UserAddComponent;
@@ -37,6 +38,10 @@ use App\Livewire\Supplier\SupplierEditComponent;
 use App\Livewire\Activity\ProductActivityComponent;
 use App\Livewire\Activity\ProductKeluarActivityComponent;
 use App\Livewire\Activity\ProductMasukActivityComponent;
+use App\Livewire\Retur\ReturAllComponent;
+use App\Livewire\Retur\ReturAddComponent;
+use App\Livewire\Retur\ReturEditComponent;
+
 
 
 
@@ -115,6 +120,13 @@ Route::get('edit-product_in/{pm_id}', PmEditComponent::class)->name('product_mas
 Route::get('all-product_out', PkAllComponent::class)->name('product_keluar.all');
 Route::get('add-product_out', PkAddComponent::class)->name('product_keluar.add');
 Route::get('edit-product_out/{pk_id}', PkEditComponent::class)->name('product_keluar.edit');
+
+Route::get('all-retur', ReturAllComponent::class)->name('retur.all');
+Route::get('add-retur', ReturAddComponent::class)->name('retur.add');
+Route::get('edit-retur/{retur_id}', ReturEditComponent::class)->name('retur.edit');
+
+Route::post('import-retur', [ReturImportController::class, 'ReturImport'])->name('retur.import');
+Route::get('export-retur', [ReturImportController::class, 'ReturExport'])->name('retur.export');
 
 //import_route
 Route::post('import-customer', [CustomerImportController::class, 'CustomerImport'])->name('customer.import');

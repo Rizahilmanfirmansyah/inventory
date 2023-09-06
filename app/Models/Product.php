@@ -45,5 +45,10 @@ class Product extends Model
     {
         return $this->hasMany(Product_keluar::class, 'id');
     }
+
+    public function retur()
+    {
+        return $this->hasMany(Retur::class, 'id');
+    }
     
 }

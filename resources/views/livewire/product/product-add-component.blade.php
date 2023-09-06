@@ -9,22 +9,22 @@
                 <div class="card-body">
                     <form wire:submit.prevent="addProduct" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="nama">Nama Produk</label>
+                            <label for="nama" class="form-label">Nama Produk</label>
                             <input type="text" class="form-control" wire:model="nama">
                             @error('nama') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Harga</label>
+                            <label for="nama" class="form-label">Harga</label>
                             <input type="text" class="form-control" wire:model="harga">
                             @error('harga') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Quantity</label>
+                            <label for="nama" class="form-label">Quantity</label>
                             <input type="text" class="form-control" wire:model="qty">
                             @error('qty') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Kategori</label>
+                            <label for="nama" class="form-label">Kategori</label>
                             <select name="" id="" class="form-control" wire:model="category_id">
                                 <option value="" selected>Pilih Kategori</option>
                                 @foreach ($categories as $category)
@@ -34,7 +34,7 @@
                             @error('category_id') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Foto Produk</label>
+                            <label for="nama" class="form-label">Foto Produk</label>
                             <input type="file" class="form-control" wire:model="image">
                             <br>
                             @if ($this->image)

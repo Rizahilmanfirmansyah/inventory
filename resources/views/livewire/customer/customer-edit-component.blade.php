@@ -8,22 +8,22 @@
                 <div class="card-body">
                     <form action="#" wire:submit.privent="editCustomer">
                         <div class="form-group">
-                            <label for="nama">Nama</label>
+                            <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" wire:model="nama">
                             @error('nama') <span class="error">{{ $message }}</span> @enderror                                
                         </div>
                         <div class="form-group">
-                            <label for="nama">Alamat</label>
+                            <label for="nama" class="form-label">Alamat</label>
                             <input type="text" class="form-control" wire:model="alamat">
                             @error('alamat') <span class="error">{{ $message }}</span> @enderror                                
                         </div>
                         <div class="form-group">
-                            <label for="nama">Email</label>
+                            <label for="nama" class="form-label">Email</label>
                             <input type="text" class="form-control" wire:model="email">
                             @error('email') <span class="error">{{ $message }}</span> @enderror                                
                         </div>
                         <div class="form-group">
-                            <label for="nama">Telepon</label>
+                            <label for="nama" class="form-label">Telepon</label>
                             <input type="text" class="form-control" wire:model="telepon">
                             @error('telepon') <span class="error">{{ $message }}</span> @enderror                                
                         </div>
