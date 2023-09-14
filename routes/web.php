@@ -20,6 +20,7 @@ use App\Livewire\Category\CategoryEditComponent;
 use App\Livewire\Product\ProductAllComponent;
 use App\Livewire\Product\ProductAddComponent;
 use App\Livewire\Product\ProductEditComponent;
+use App\Livewire\Product\ProductDetailComponent;
 use App\Livewire\Customer\CustomerAddComponent;
 use App\Livewire\Customer\CustomerEditComponent;
 use App\Livewire\Customer\CustomerAllComponent;
@@ -38,6 +39,7 @@ use App\Livewire\Supplier\SupplierEditComponent;
 use App\Livewire\Activity\ProductActivityComponent;
 use App\Livewire\Activity\ProductKeluarActivityComponent;
 use App\Livewire\Activity\ProductMasukActivityComponent;
+use App\Livewire\Activity\ReturActivityComponent;
 use App\Livewire\Retur\ReturAllComponent;
 use App\Livewire\Retur\ReturAddComponent;
 use App\Livewire\Retur\ReturEditComponent;
@@ -82,6 +84,7 @@ Route::get('add-user', UserAddComponent::class)->name('user.add');
 Route::get('product-activity', ProductActivityComponent::class)->name('product.activity');
 Route::get('product_out-activity', ProductKeluarActivityComponent::class)->name('product_keluar.activity');
 Route::get('product_in-activity', ProductMasukActivityComponent::class)->name('product_masuk.activity');
+Route::get('retur-activity', ReturActivityComponent::class)->name('retur.activity');
 
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -100,6 +103,7 @@ Route::get('edit-category/{category_id}', CategoryEditComponent::class)->name('c
 Route::get('all-product', ProductAllComponent::class)->name('product.all');
 Route::get('add-product', ProductAddComponent::class)->name('product.add');
 Route::get('edit-product/{product_id}', ProductEditComponent::class)->name('product.edit');
+Route::get('detail-product/{product_id}', ProductDetailComponent::class)->name('product.detail');
 
 Route::get('all-customer', CustomerAllComponent::class)->name('customer.all');
 Route::get('add-customer', CustomerAddComponent::class)->name('customer.add');

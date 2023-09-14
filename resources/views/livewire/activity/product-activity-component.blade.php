@@ -7,7 +7,7 @@
                     Log Product Activity
                 </div>
                 <div class="card-body">
-                    <table class="table nowrap" id="data-activity">
+                    <table class="table nowrap" id="data-activity-log-product">
                         <thead>
                             <tr>
                                 <th>Log Name</th>
@@ -29,4 +29,9 @@
             </div>
         </div>
     </div>
+    <script>
+        new DataTable('#data-activity-log-product', {
+            order: [['2', 'desc']]
+        });
+    </script>
 </div>

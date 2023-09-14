@@ -43,23 +43,76 @@
             </div>
         </div>
     </div>
-    @push('scripts')
+    {{-- <script>
+        function confirmation(ev) {
+          ev.preventDefault();
+          var urlToRedirect = ev.currentTarget.getAttribute('href');  
+          console.log(urlToRedirect); 
+          swal({
+              title: "Are you sure to Delete this post",
+              text: "You will not be able to revert this!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willCancel) => {
+              if (willCancel) {
+  
+  
+                   
+                  window.location.href = urlToRedirect;
+                 
+              }  
+  
+  
+          });
+  
+          
+      }
+  </script> --}}
     <script>
-        document.addEventListener('show', function(e){
-           Swal.fire({
-           title: 'Are you sure?',
-           text: "You won't be able to revert this!",
-           icon: 'warning',
-           showCancelButton: true,
-           confirmButtonColor: '#3085d6',
-           cancelButtonColor: '#d33',
-           confirmButtonText: 'Yes, delete it!'
-           }).then((result) => {
-           if (result.isConfirmed) {
-               Livewire.emit('deleteConfirmed');
-            }
-           });
-        });
+
+        // function confirmation(ev)
+        // {
+        //     ev.preventDefault();
+
+        //     var.urlToRedirect=ev.currentTarget.getAttribute('href');
+
+        //     console.log(urlToRedirect);
+
+        //     swal({
+        //         title: "Are You Sure",
+        //         text : "test",
+        //         icon : "warning",
+        //         button : true,
+        //         dangerMode : true,
+        //     })
+
+        //     .then((willCancel)=>
+        //     {
+        //         if(willCancel)
+        //         {
+        //             window.location.href=urlToRedirect;
+        //         }
+        //     }
+        //     )
+            
+        // }
+        // document.addEventListener('show', function(e){
+        //    Swal.fire({
+        //    title: 'Are you sure?',
+        //    text: "You won't be able to revert this!",
+        //    icon: 'warning',
+        //    showCancelButton: true,
+        //    confirmButtonColor: '#3085d6',
+        //    cancelButtonColor: '#d33',
+        //    confirmButtonText: 'Yes, delete it!'
+        //    }).then((result) => {
+        //    if (result.isConfirmed) {
+        //        Livewire.emit('deleteConfirmed');
+        //     }
+        //    });
+        // });
     //     window.addEventListener('show', event => {
     //        Swal.fire({
     //        title: 'Are you sure?',
@@ -77,7 +130,6 @@
     //    });
     </script>
         
-    @endpush
 
  
 </div>

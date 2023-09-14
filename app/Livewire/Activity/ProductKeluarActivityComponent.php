@@ -15,6 +15,6 @@ class ProductKeluarActivityComponent extends Component
         $products_keluar = Log_Activity::where('log_name', 'product_keluar')->paginate(10);
         return view('livewire.activity.product-keluar-activity-component', [
             'products_keluar' => $products_keluar
-        ])->layout('layouts.layout-log');
+        ])->layout('layouts.layout-admin');
     }
 }

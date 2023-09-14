@@ -50,7 +50,7 @@ class LoginController extends Controller
     public function aksilogout()
     {
         Auth::logout();
-        session()->flash('notif', 'User Logout');
+        session()->flash('notif', 'User Logout Berhasil');
         return redirect()->route('login');
     }
 }

@@ -4,10 +4,10 @@
         <div class="justify-content-center">
             <div class="card" style="width: 60rem;">
                 <div class="card-header">
-                    Log Product Activity
+                    Log Product Masuk
                 </div>
                 <div class="card-body">
-                    <table class="table nowrap" id="data-activity">
+                    <table class="table nowrap" id="data-activity-pm">
                         <thead>
                             <tr>
                                 <th>Log Name</th>
@@ -29,4 +29,9 @@
             </div>
         </div>
     </div>
+    <script>
+        new DataTable('#data-activity-pm', {
+            order: [['2', 'desc']]
+        });
+    </script>
 </div>

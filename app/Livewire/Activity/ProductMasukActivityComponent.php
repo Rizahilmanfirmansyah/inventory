@@ -15,6 +15,6 @@ class ProductMasukActivityComponent extends Component
         $products_masuk = Log_Activity::where('log_name', 'product_masuk')->paginate(10); 
         return view('livewire.activity.product-masuk-activity-component', [
             'products_masuk' => $products_masuk
-        ])->layout('layouts.layout-log');
+        ])->layout('layouts.layout-admin');
     }
 }

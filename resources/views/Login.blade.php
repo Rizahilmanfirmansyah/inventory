@@ -63,14 +63,14 @@
                     <form action="{{ route('aksilogin')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>Email address</label>
+                            <label class="form-label">Email address</label>
                             <input type="email" class="form-control" placeholder="Email" name="email">
                             @error('email')
                             <span class="error">{{$message}}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label class="form-label">Password</label>
                             <input type="password" class="form-control" placeholder="Password" name="password">
                             @error('password')
                             <span class="error">{{$message}}</span>

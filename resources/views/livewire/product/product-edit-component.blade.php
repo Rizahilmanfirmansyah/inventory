@@ -43,6 +43,7 @@
                             @endif
                             @error('image') <span class="error">{{ $message }}</span> @enderror
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>

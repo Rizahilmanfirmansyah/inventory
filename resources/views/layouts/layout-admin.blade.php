@@ -150,11 +150,24 @@
                     <li class="">
                         <a href="{{route('retur.all')}}"><i class="menu-icon fa fa-inbox"></i>Product Retur</a>
                     </li>
-                    {{-- @if (Auth::user()->role === 'supervisor_admin')
+                    <li class="menu-title">User Activity</li>
+                    @if (Auth::user()->role === 'admin')
                     <li class="">
-                        <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-sign-out"></i>All Activity</a>
-                    </li>                         
-                    @endif --}}
+                        <a href="{{route('user.all')}}"><i class="menu-icon fa fa-group"></i>Users</a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('product.activity')}}"><i class="menu-icon fa fa-archive"></i>Aktivitas Produk</a>
+                    </li> 
+                    <li class="">
+                        <a href="{{route('product_masuk.activity')}}"><i class="menu-icon fa fa-arrow-circle-right"></i>Log Product Masuk</a>
+                    </li> 
+                    <li class="">
+                        <a href="{{route('product_keluar.activity')}}"><i class="menu-icon fa fa-arrow-circle-left"></i>Log Product Keluar</a>
+                    </li>  
+                    <li class="">
+                        <a href="{{route('retur.activity')}}"><i class="menu-icon fa fa-inbox"></i>Log Product Retur</a>
+                    </li>                       
+                    @endif
                     
                     {{-- <li class="menu-title">Order</li><!-- /.menu-title -->
                     <li class="">
@@ -370,6 +383,7 @@
                         {{-- <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="{{asset('folder_image/user.jpg')}}" alt="User Avatar">
                         </a> --}}
+                        {{-- <a class="nav-link" href="#"><i class="fa fa- user"></i>{{Auth::user()->name}}</a> --}}
                         <form action="{{route('aksilogout')}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-light">Logout</button>
